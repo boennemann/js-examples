@@ -1,0 +1,29 @@
+{
+  "name": "js-examples",
+  "private": true,
+  "version": "1.0.0",
+  "description": "basic js examples",
+  "main": "index.js",
+  "scripts": {
+    "build": "6to5 index.es6 > index.js",
+    "publish": "npm run build",
+    "pretest": "npm run build",
+    "test": "node test | faucet"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/boennemann/js-examples.git"
+  },
+  "author": "Stephan Bönnemann",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/boennemann/js-examples/issues"
+  },
+  "homepage": "https://github.com/boennemann/js-examples",
+  "devDependencies": {
+    "6to5": "^1.14.17",
+    "faucet": "0.0.1",
+    "tape": "^3.0.3",
+    "watch": "^0.13.0"
+  }
+}
