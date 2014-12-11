@@ -32,8 +32,8 @@ exports.endsWith = function (s, compareString) {
  * @param compareString A variable list of compare strings
  * @return true, if the string starts with at least one of the compare strings
  */
-exports.mStartsWith = function (s) {
-  return [].slice.call(arguments, 1).some(exports.startsWith.bind(null, s))
+exports.mStartsWith = function (s, ...compare) {
+  return compare.some(exports.startsWith.bind(null, s))
 }
 
 /**
@@ -60,11 +60,9 @@ exports.replace = function (s, toReplace, replaceBy) {
  * @param string n: replacement string
  * @return
  */
-exports.mReplace = function (x) {
-  var args = [].slice.call(arguments, 1)
-  var replaceBy = args.pop()
-
-  return args.reduce(function(result, arg) {
+exports.mReplace = function (x, ...toReplace) {
+  var replaceBy = toReplace.pop()
+  return toReplace.reduce(function(result, arg) {
     return exports.replace(result, arg, replaceBy)
   }, x)
 }
