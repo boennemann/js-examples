@@ -62,9 +62,7 @@ exports.replace = function (s, toReplace, replaceBy) {
  */
 exports.mReplace = function (x, ...toReplace) {
   var replaceBy = toReplace.pop()
-  return toReplace.reduce(function(result, arg) {
-    return exports.replace(result, arg, replaceBy)
-  }, x)
+  return toReplace.reduce((result, arg) => exports.replace(result, arg, replaceBy), x)
 }
 
 /**
@@ -117,7 +115,5 @@ exports.createName = function createName(firstname) {
  * @param array
  */
 exports.cleanArray = function(array) {
-  return array.filter(function(e) {
-    return e != null
-  })
+  return array.filter(e => e != null)
 }
