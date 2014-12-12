@@ -74,14 +74,7 @@ export function mReplace(x, ...toReplace) {
  * @return the number of occurences of compareString in this.
  */
 export function numberOf(s, compareString, offset, count) {
-  var count = 0
-  var match = s.search(compareString)
-  while(~match) {
-    count++
-    s = s.split('').splice(match + compareString.length, s.length).join('')
-    match = s.search(compareString)
-  }
-  return count
+  return (s.match(new RegExp(quotemeta(compareString), 'gm')) || []).length
 }
 
 /**
