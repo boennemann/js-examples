@@ -1,5 +1,5 @@
-import 'String.prototype.endsWith'
-import 'String.prototype.startsWith'
+import 'string.prototype.endswith'
+import 'string.prototype.startswith'
 import * as quotemeta from 'quotemeta'
 
 /**
