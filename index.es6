@@ -1,5 +1,3 @@
-'use strict'
-
 /**
  * Checks if a string starts with the compare string.
  *
@@ -8,7 +6,7 @@
  * @param compareString The compare string
  * @return true, if the string <code>s</code> starts with the string <code>compareString</code>.
  */
-exports.startsWith = function (s, compareString) {
+export function startsWith(s, compareString) {
   return s.indexOf(compareString) === 0
 }
 
@@ -20,7 +18,7 @@ exports.startsWith = function (s, compareString) {
  * @param compareString The compare string
  * @return true, if the string <code>s</code> ends with the string <code>compareString</code>.
  */
-exports.endsWith = function (s, compareString) {
+export function endsWith(s, compareString) {
   return !!~s.indexOf(compareString, s.length - compareString.length)
 }
 
@@ -32,8 +30,8 @@ exports.endsWith = function (s, compareString) {
  * @param compareString A variable list of compare strings
  * @return true, if the string starts with at least one of the compare strings
  */
-exports.mStartsWith = function (s, ...compare) {
-  return compare.some(exports.startsWith.bind(null, s))
+export function mStartsWith(s, ...compare) {
+  return compare.some(startsWith.bind(null, s))
 }
 
 /**
@@ -45,7 +43,7 @@ exports.mStartsWith = function (s, ...compare) {
  * @param replaceBy The replacement string
  * @return the string with the replacements done
  */
-exports.replace = function (s, toReplace, replaceBy) {
+export function replace(s, toReplace, replaceBy) {
   toReplace = String(toReplace).replace(/([.*+?=^!:${}()|[\]\/\\])/g, '\\$1')
   return s.replace(RegExp(toReplace, 'gm'), replaceBy)
 }
@@ -61,9 +59,9 @@ exports.replace = function (s, toReplace, replaceBy) {
  * @param string n: replacement string
  * @return
  */
-exports.mReplace = function (x, ...toReplace) {
+export function mReplace(x, ...toReplace) {
   var replaceBy = toReplace.pop()
-  return toReplace.reduce((result, arg) => exports.replace(result, arg, replaceBy), x)
+  return toReplace.reduce((result, arg) => replace(result, arg, replaceBy), x)
 }
 
 /**
@@ -74,7 +72,7 @@ exports.mReplace = function (x, ...toReplace) {
  * @param compareString The string whose occurrence has to be counted
  * @return the number of occurences of compareString in this.
  */
-exports.numberOf = function (s, compareString, offset, count) {
+export function numberOf(s, compareString, offset, count) {
   var count = 0
   var match = s.search(compareString)
   while(~match) {
@@ -92,7 +90,7 @@ exports.numberOf = function (s, compareString, offset, count) {
  * @param x the string
  * @return the converted string
  */
-exports.toUpperCaseFirst = function (s) {
+export function toUpperCaseFirst(s) {
   return s.charAt(0).toUpperCase() + s.slice(1)
 }
 
@@ -103,7 +101,7 @@ exports.toUpperCaseFirst = function (s) {
  * @param name string
  * @return string The fullname separated with ' '
  */
-exports.createName = function createName(firstname) {
+export function createName(firstname) {
   return function(lastname) {
     return firstname + ' ' + lastname
   }
@@ -115,6 +113,6 @@ exports.createName = function createName(firstname) {
  * @usage cleanArray(['1', '2', '2', null, undefined, 4, 5. undefined]) //cleans the array ['1', '2', '2', 4, 5]
  * @param array
  */
-exports.cleanArray = function(array) {
+export function cleanArray(array) {
   return array.filter(e => e != null)
 }
