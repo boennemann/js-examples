@@ -98,9 +98,7 @@ export function toUpperCaseFirst(s) {
  * @return string The fullname separated with ' '
  */
 export function createName(firstname) {
-  return function(lastname) {
-    return firstname + ' ' + lastname
-  }
+  return lastname => firstname + ' ' + lastname
 }
 
 /**
