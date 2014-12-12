@@ -1,3 +1,5 @@
+import * as quotemeta from "quotemeta"
+
 /**
  * Checks if a string starts with the compare string.
  *
@@ -44,8 +46,7 @@ export function mStartsWith(s, ...compare) {
  * @return the string with the replacements done
  */
 export function replace(s, toReplace, replaceBy) {
-  toReplace = String(toReplace).replace(/([.*+?=^!:${}()|[\]\/\\])/g, '\\$1')
-  return s.replace(RegExp(toReplace, 'gm'), replaceBy)
+  return s.replace(RegExp(quotemeta(toReplace), 'gm'), replaceBy)
 }
 
 /**
