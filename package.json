@@ -27,6 +27,8 @@
     "watch": "^0.13.0"
   },
   "dependencies": {
-    "quotemeta": "0.0.0"
+    "quotemeta": "0.0.0",
+    "string.prototype.endswith": "^0.2.0",
+    "string.prototype.startswith": "^0.2.0"
   }
 }

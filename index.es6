@@ -1,4 +1,6 @@
-import * as quotemeta from "quotemeta"
+import 'String.prototype.endsWith'
+import 'String.prototype.startsWith'
+import * as quotemeta from 'quotemeta'
 
 /**
  * Checks if a string starts with the compare string.
@@ -9,7 +11,7 @@ import * as quotemeta from "quotemeta"
  * @return true, if the string <code>s</code> starts with the string <code>compareString</code>.
  */
 export function startsWith(s, compareString) {
-  return s.indexOf(compareString) === 0
+  return s.startsWith(compareString)
 }
 
 /**
@@ -21,7 +23,7 @@ export function startsWith(s, compareString) {
  * @return true, if the string <code>s</code> ends with the string <code>compareString</code>.
  */
 export function endsWith(s, compareString) {
-  return !!~s.indexOf(compareString, s.length - compareString.length)
+  return s.endsWith(compareString)
 }
 
 /**
