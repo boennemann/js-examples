@@ -26,11 +26,12 @@ test('mStartsWith', function(t) {
 })
 
 test('replace', function(t) {
-  t.plan(3)
+  t.plan(4)
 
   t.equal(e.replace('hello world','o','xx'), 'hellxx wxxrld')
   t.equal(e.replace('hello world','ll','x'), 'hexo world')
   t.equal(e.replace('hello world','a','x'), 'hello world')
+  t.equal(e.replace('he++o wor+d','+','l'), 'hello world')
 })
 
 test('mReplace', function(t) {
@@ -41,11 +42,12 @@ test('mReplace', function(t) {
 })
 
 test('numberOf', function(t) {
-  t.plan(3)
+  t.plan(4)
 
   t.equal(e.numberOf('hello world','l'), 3)
   t.equal(e.numberOf('hello world','h'), 1)
   t.equal(e.numberOf('hello world','x'), 0)
+  t.equal(e.numberOf('hello wo xo world', 'wo'), 2)
 })
 
 test('toUpperCaseFirst', function(t) {

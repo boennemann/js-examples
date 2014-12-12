@@ -9,7 +9,7 @@
  * @return true, if the string <code>s</code> starts with the string <code>compareString</code>.
  */
 exports.startsWith = function (s, compareString) {
-  return s.lastIndexOf(compareString) === 0
+  return s.indexOf(compareString) === 0
 }
 
 /**
@@ -21,7 +21,7 @@ exports.startsWith = function (s, compareString) {
  * @return true, if the string <code>s</code> ends with the string <code>compareString</code>.
  */
 exports.endsWith = function (s, compareString) {
-  return s.lastIndexOf(compareString) === s.length - compareString.length
+  return !!~s.indexOf(compareString, s.length - compareString.length)
 }
 
 /**
@@ -46,6 +46,7 @@ exports.mStartsWith = function (s, ...compare) {
  * @return the string with the replacements done
  */
 exports.replace = function (s, toReplace, replaceBy) {
+  toReplace = String(toReplace).replace(/([.*+?=^!:${}()|[\]\/\\])/g, '\\$1')
   return s.replace(RegExp(toReplace, 'gm'), replaceBy)
 }
 
